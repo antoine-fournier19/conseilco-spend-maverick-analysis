@@ -2,7 +2,7 @@
 
 > Mission BI fictive menée en posture de consultant externe.
 > Cabinet de conseil ETI, 1 000 collaborateurs, 5 bureaux. Direction Achats commanditaire.
-> **Objectif : quantifier et piloter le maverick buying pour récupérer ~2,1 M€ d'économies annuelles.**
+> **Objectif : quantifier et piloter le maverick buying pour générer ~2,1 M€ d'économies annuelles.**
 
 [![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
@@ -32,7 +32,7 @@
 
 ## 🎯 Contexte de la mission
 
-**ConseilCo** (cabinet de conseil fictif) — ETI française de 1 000 collaborateurs, présente à Paris et dans 4 bureaux régionaux (Lyon, Bordeaux, Lille, Nantes). En forte croissance, sa Direction Achats récemment renforcée souhaite **professionnaliser la fonction** et **maîtriser le maverick buying** — les dépenses engagées hors des circuits contractuels.
+**ConseilCo** (cabinet de conseil fictif) — ETI (entreprise de taille intermédiaire) française de 1 000 collaborateurs, présente à Paris et dans 4 bureaux régionaux (Lyon, Bordeaux, Lille, Nantes). En forte croissance, sa Direction Achats, récemment renforcée, souhaite **professionnaliser la fonction** et **maîtriser le maverick buying** — les dépenses engagées hors des circuits contractuels.
 
 ### Problématique métier
 
@@ -62,10 +62,10 @@ Le bureau de Lyon affiche un taux de maverick de **37,4%** contre ~31% pour les 
 > *« Le problème n'est pas l'enveloppe, c'est la gouvernance. »*
 
 ### 3. Le surcoût se chiffre — l'opportunité aussi
-À 32,7% de maverick global et un surcoût moyen estimé via remises contractuelles non captées, le maverick coûte ~**3 000 €/collaborateur/an** à ConseilCo. En atteignant le best-in-class marché (Ardent Partners — 74,9% de couverture contractuelle), l'économie simulée est de **~2,1 M€/an**.
+À 32,7% de maverick global et un surcoût moyen estimé via remises contractuelles non captées, le maverick coûte ~**3 000 €/collaborateur/an** à ConseilCo. En atteignant la référence du marché (Ardent Partners — 74,9% de couverture contractuelle), l'économie simulée est de **~2,1 M€/an**.
 
 ### 4. La double lecture du maverick
-Le taux « métier » (32,7%) ne raconte qu'une partie de l'histoire. **57,5%** des transactions n'ont **aucun contrat rattaché** : zone grise de **25 pts** — fournisseurs référencés mais utilisés sans cadre contractuel formel. Levier d'amélioration majeur, invisible sur le seul taux maverick.
+Le taux « métier » (32,7%) ne raconte qu'une partie de l'histoire. **57,5%** des transactions n'ont **aucun contrat rattaché** : zone grise de **25 points** — fournisseurs référencés mais utilisés sans cadre contractuel formel. Levier d'amélioration majeur, invisible sur le seul taux maverick.
 
 ---
 
@@ -74,9 +74,9 @@ Le taux « métier » (32,7%) ne raconte qu'une partie de l'histoire. **57,5%** 
 | Domaine | Outils & techniques |
 |---|---|
 | **Génération de données** | Python 3.11 (pandas, numpy, faker) |
-| **Préparation** | Power Query (M) — francisation, typage, dépivotage |
+| **Préparation** | Power Query (langage M) — francisation, typage, dépivotage |
 | **Modélisation** | Schéma en étoile, 6 dimensions + 1 fait, 30 000 transactions |
-| **Calculs** | DAX — 20 mesures en 5 dossiers d'affichage |
+| **Calculs** | DAX (Data Analysis Expressions, langage de calcul de Power BI) — 20 mesures en 5 dossiers d'affichage |
 | **Visualisation** | Power BI Desktop, charte visuelle dédiée |
 | **Interactivité** | Paramètre What-if (simulateur d'économies) |
 
@@ -182,22 +182,22 @@ Ce projet a été mené dans une posture de **consultant BI externe** mandaté p
 | Étape | Livrable |
 |---|---|
 | **Cadrage** | Note de cadrage, problématique en 1 phrase, KPI cibles |
-| **Conception données** | Taxonomie achats (8/39), volumétrie calibrée sur benchmarks marché (Ardent Partners, APQC) |
+| **Conception données** | Taxonomie achats (8/39), volumétrie calibrée sur benchmarks marché (Ardent Partners — cabinet d'analyse de référence sur les Achats indirects ; APQC — American Productivity & Quality Center) |
 | **Génération** | Script Python paramétrable, calibration multi-niveaux (taux par famille, bureau dérivant, fournisseurs pirates) |
 | **Modélisation** | Schéma en étoile, conventions de nommage, table de dates marquée |
 | **Mesures DAX** | 20 mesures structurées en 5 dossiers, time intelligence, what-if |
-| **Visualisation** | Charte sobre, 4 pages narratives, page navigator, drill-down |
+| **Visualisation** | Charte sobre, 4 pages narratives, navigation entre pages, exploration descendante |
 | **Restitution** | Vidéo démo, documentation, pitch entretien |
 
 ### Limites identifiées et assumées
-- **Données 100% synthétiques** : crédibilité statistique mais pas de signal réel à découvrir
-- **Pas de déploiement Power BI Service** : compte pro non disponible — vidéo démo et `.pbix` GitHub privilégiés
-- **Pas de RLS implémenté** : non pertinent pour le périmètre fictif retenu
+- **Données 100% synthétiques** : crédibilité statistique mais pas de découverte réelle à en tirer
+- **Pas de déploiement sur Power BI Service** : compte pro non disponible — vidéo démo et `.pbix` GitHub privilégiés
+- **Sécurité au niveau des lignes (RLS) non mise en place** : non pertinent pour le périmètre fictif retenu
 
 ### Points méthodologiques travaillés
 - **Documentation au fil de l'eau** : journal de bord, décisions tracées
 - **Itération vs perfection** : 5 corrections successives sur le dataset (cf. journal des décisions)
-- **Arbitrage simple vs sophistiqué** : filtre Année simple retenu après abandon d'une solution dynamique mal alignée au besoin
+- **Arbitrage simple vs sophistiqué** : filtre Année simple retenu après l'abandon d'une solution dynamique qui ne correspondait pas au besoin
 
 ---
 
@@ -227,4 +227,4 @@ Les données sont entièrement **fictives et synthétiques** — toute ressembla
 
 ---
 
-*Projet réalisé dans le cadre de la préparation à la certification Microsoft PL-300 et de la recherche d'alternance. Document vivant — dernière mise à jour : mai 2026.*
+*Document mis à jour régulièrement — dernière révision : mai 2026. Projet réalisé dans le cadre de la préparation à la certification Microsoft PL-300 et de la recherche d'alternance.*
